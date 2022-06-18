@@ -12,17 +12,17 @@ def move(mv):
   else:
     print("Illegal move")
     return -1
-i=0
+#i=0
 while(board.is_checkmate()!=True):
   print(board)
-  i+=1
-  if(i%2==0):
+  print("\n")
+  #i+=1
+  if(board.turn==False):
+    print("Bot's move")
     mv = random.choice(list(board.legal_moves))
     board.push_san(str(mv))
-    print(board)
   else:
     mv = input("Your move : ")
     while(move(mv)!=0):
       mv = input("Your move : ")
-      print(board)
     
