@@ -2,6 +2,10 @@
 import chess
 import random
 import chess.svg
+from printy import printy
+from pprint import pprint
+from colorama import Fore
+from colorama import Style
 board = chess.Board()
 
 
@@ -14,15 +18,13 @@ def move(mv):
     return -1
 #i=0
 while(board.is_checkmate()!=True):
-  print(board)
-  print("\n")
+  printy(board)
   #i+=1
   if(board.turn==False):
-    print("Bot's move")
+    print(f"Bot's move")
     mv = random.choice(list(board.legal_moves))
     board.push_san(str(mv))
   else:
     mv = input("Your move : ")
     while(move(mv)!=0):
       mv = input("Your move : ")
-    
